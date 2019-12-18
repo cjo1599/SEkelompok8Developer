@@ -1,0 +1,23 @@
+APLIKASI PENGHITUNG PAJAK "PAJAK TOMBAK BANGSA"
+
+
+Owner 	:
+
+Kelompok 1
+
+1901525921	Tohap Maruli Pasaribu 
+2101663281	Reni Kartika 
+2101668553	I Gede Arya Krisnadi 
+2101712390	Naufal Hafiz 
+2101714080	Regy Mirza Arfiansyah 
+
+
+
+Developer :
+
+Kelompok 8
+
+2101652523	Caecilia Jovanna		cjo1599			Project Manager
+2101709755	Febbiola Ayu Pitaloka		febbiolaxoxo		System Analyst
+1901522680	Novita Listiani Suryadi		novitalistiani4		Software Engineer
+2101640403	Rainer Geraldy Rhesa Ongke	siansian21		Design
