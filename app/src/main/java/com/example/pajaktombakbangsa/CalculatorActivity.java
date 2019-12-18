@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CalculatorActivity extends AppCompatActivity {
-    private EditText edtharga, edtongkir, edtasuransi, edtkurs;
+    private EditText edtharga, edtongkir, edtasuransi;
     private Button btnproses;
     private TextView txtharga;
     private TextView txtongkir;
@@ -23,23 +23,41 @@ public class CalculatorActivity extends AppCompatActivity {
     private TextView txtpajak;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+
+
 
         getSupportActionBar().setTitle("Tombak Pajak Bangsa");
 
         edtharga = (EditText) findViewById(R.id.hargabarang);
         edtongkir = (EditText) findViewById(R.id.hargaongkir);
         edtasuransi = (EditText) findViewById(R.id.hargaasuransi);
-        edtkurs = (EditText) findViewById(R.id.kurs);
         btnproses = (Button) findViewById(R.id.proses);
         txtharga = (TextView) findViewById(R.id.hargabarang);
         txtongkir = (TextView) findViewById(R.id.hargaongkir);
         txtasuransi = (TextView) findViewById(R.id.hargaasuransi);
         txtkurs = (TextView) findViewById(R.id.kurs);
+        Bundle bundle=getIntent().getExtras();
+        final String data=bundle.get("data").toString();
+        if(data.equals("USA")) {
+            txtkurs.setText("Kurs: 14000");
+        }else if (data.equals("Japan")){
+            txtkurs.setText("Kurs: 120");
+        }else if (data.equals("Korea")){
+            txtkurs.setText("Kurs: 24");
+        } else if (data.equals("United Kingdom")) {
+            txtkurs.setText("Kurs: 18000");
+        }else {
+            txtkurs.setText("Kurs: 2000");
+        }
         txtpajak = (TextView) findViewById(R.id.hargapajak);
+
+
 
 
         //memberikan action pada tombol proses
@@ -50,14 +68,26 @@ public class CalculatorActivity extends AppCompatActivity {
                 String hargabarang = edtharga.getText().toString().trim();
                 String hargaongkir= edtongkir.getText().toString().trim();
                 String hargaasuransi = edtasuransi.getText().toString().trim();
-                String kurs = edtkurs.getText().toString().trim();
+                int hargakurs;
+                if (data.equals("USA")){
+                    hargakurs = 14000;
+                }else if (data.equals("Japan")){
+                    hargakurs = 120;
+                }else if (data.equals("Korea")){
+                    hargakurs = 24;
+                }else if (data.equals("United Kingdom")){
+                    hargakurs = 18000;
+                }else{
+                    hargakurs = 2000;
+                }
+
 
                 double hb = Double.parseDouble(hargabarang);
                 double ho = Double.parseDouble(hargaongkir);
                 double ha = Double.parseDouble(hargaasuransi);
-                double k = Double.parseDouble(kurs);
-                double hargapajak = (hb * ho + ha  * 0.75 * k);
-                txtpajak.setText("Harga Pajak yang harus dibayar: " + hargapajak);
+                double totaltransaksi = (hb + ho + ha);
+                double hargapajak = (totaltransaksi * 0.075 * hargakurs);
+                txtpajak.setText("Harga Pajak yang harus dibayar: Rp " + hargapajak);
 
 
             }

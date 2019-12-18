@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 String usernameKey = ed1.getText().toString();
                 String passwordKey = ed2.getText().toString();
 
-                if (usernameKey != null && usernameKey != "" && passwordKey.equals("123")){
+                if (usernameKey != null && usernameKey != "" && passwordKey.equals("Tombakbangsa")){
                     //jika login berhasil
                     Toast.makeText(getApplicationContext(), "LOGIN SUKSES",
                             Toast.LENGTH_SHORT).show();
@@ -63,4 +63,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
